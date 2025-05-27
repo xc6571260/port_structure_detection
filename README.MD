@@ -20,7 +20,7 @@
   <img src="fig/poi1_map.png" width="340"/> <img src="fig/poi2_map.png" width="340"/> <img src="fig/poi3_map.png" width="340"/>
 </div>
 
-與去年度港邊設施POI相同
+- 與去年度港邊設施POI相同
 ---
 
 ## 🛠️ 工作流程
