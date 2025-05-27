@@ -20,6 +20,7 @@
   <img src="fig/poi1_map.png" width="340"/> <img src="fig/poi2_map.png" width="340"/> <img src="fig/poi3_map.png" width="340"/>
 </div>
 
+與去年度港邊設施POI相同
 ---
 
 ## 🛠️ 工作流程
@@ -37,9 +38,12 @@
 
 ## 📊 成果範例
 
-<img src="fig/example.png" width="600"/>
+<div align="center">
+  <img src="fig/example.png" width="600"/>
+</div>
 
 ---
+
 
 ## ⚙️ 部署說明（Docker + CUDA 12.4）
 
@@ -69,4 +73,34 @@ docker run --gpus all -v D:/your_path/port_structure_detection/input:/app/input 
 ```bash
 docker run -v D:/your_path/port_structure_detection/input:/app/input -v D:/your_path/port_structure_detection/output:/app/output port_structure
 ```
+## 📂 目錄結構
+
+```
+input/        # 要檢測的原始影像
+output/       # 推論及標註後的結果圖像
+models/       # 預訓練模型檔案 (best.pt)
+utils/        # 工具模組
+fig/          # 說明及流程圖等圖片
+Dockerfile    # Docker 設定
+main.py       # 主程式
+requirements.txt
+README.md
+
+```
+
+---
+
+## 📢 注意事項
+
+- 若無 GPU/驅動，container 會自動 fallback 至 CPU（需程式支援）。
+- 如需在其他路徑運行，請調整 `-v` 掛載參數。
+
+---
+
+## 📝 作者
+
+- [xc6571260](https://github.com/xc6571260)
+
+## 聯絡方式
+- r12521801@ntu.edu.tw
 
