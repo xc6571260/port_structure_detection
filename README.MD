@@ -34,7 +34,8 @@
    將所有子圖的推論結果合併回原始大圖，並以不同顏色框標示各類破損，產生具備圖例與統計資訊的最終影像。
 
 5. **成果儲存與數據輸出**  
-  完成後自動將結果存入 output/ 資料夾，每張圖也會於終端顯示各類破損數量（如：Surface spalling: 2, Rebar exposure damage: 3）。
+  完成後自動將結果存入 output/ 資料夾，每張圖也會於終端顯示各類破損數量
+（[INFO] image_name: MAX_0211.JPG  detection_number: 9  Surface spalling: 0  Rebar exposure damage: 9）。
 ---
 
 ## 🏷️ 破損類別說明
