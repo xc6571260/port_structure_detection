@@ -4,23 +4,13 @@
 
 ---
 
-## 🌊 平台功能特色
-
-- 支援混凝土剝落（Surface spalling）、鋼筋裸露（Rebar exposure damage）兩類損傷自動檢測
-- 支援 GPU 與 CPU 雙模式推論，兼容多種硬體環境
-- 可批次處理多張港區設施影像
-- 分割及標註結果自動儲存於 output 資料夾
-- Docker 一鍵部署，復現環境零困難
-
----
-
-## 📍 港區 POI 規劃示意
+## 📍 港區 POI 規劃
 
 <div align="center">
   <img src="fig/poi1_map.png" width="340"/> <img src="fig/poi2_map.png" width="340"/> <img src="fig/poi3_map.png" width="340"/>
 </div>
 
-- 與去年度港邊設施POI相同
+- 與去年度岸邊設施POI相同
 ---
 
 ## 🛠️ 工作流程
@@ -51,6 +41,7 @@
 
 - **表面水泥剝落 (Surface spalling)**：以綠色標註
 - **鋼筋裸露 (Rebar exposure damage)**：以紅色標註
+- 當偵測到鋼筋裸露時，該圖像對應的POI點為紅色，其餘為綠色
 
 ---
 
