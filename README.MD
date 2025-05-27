@@ -1,6 +1,6 @@
 # Port Structure Damage Detection - 港口設施破損自動化檢測平台
 
-本專案針對港口設施（如消波塊、胸牆等）影像，進行自動化**混凝土剝落**與**鋼筋裸露**損傷檢測。採用 UAV 拍攝高解析度影像，並利用 YOLOv8 語意分割模型實現破損辨識。全流程支援 GPU（CUDA 12.4），並可一鍵部署。
+本專案針對港口設施（如消波塊、胸牆等）影像，進行自動化**混凝土剝落**與**鋼筋裸露**損傷檢測。採用 UAV 拍攝高解析度影像，並利用 YOLOv8 語意分割模型實現破損辨識。全流程支援 GPU（CUDA 12.4），可一鍵部署。
 
 ---
 
@@ -14,15 +14,30 @@
 
 ---
 
+## 📍 港區 POI 規劃示意
+
+<div align="center">
+  <img src="fig/poi1_map.png" width="340"/> <img src="fig/poi2_map.png" width="340"/> <img src="fig/poi3_map.png" width="340"/>
+</div>
+
+---
+
 ## 🛠️ 工作流程
 
-1. 將需檢測的原始影像（建議解析度 4000x3000 或以上）放入 `input/` 資料夾
-2. 影像自動切割為 1024x1024 小塊
-3. 使用 YOLOv8 分割模型預測損傷區域
-4. 合併預測結果，將分割區疊加至原圖，並標示類別、檢測數量
-5. 輸出帶有標註之結果圖至 `output/` 資料夾
-6. 終端自動列印各影像損傷統計（如：  
-   `[INFO] image_name: IMG_0001.jpg detection_number: 5 Surface spalling: 2 Rebar exposure damage: 3`）
+<img src="fig/workflow.png" width="100%"/>
+
+---
+
+## 🏷️ 破損類別說明
+
+- **表面水泥剝落 (Surface spalling)**：以綠色標註
+- **鋼筋裸露 (Rebar exposure damage)**：以紅色標註
+
+---
+
+## 📊 成果範例
+
+<img src="fig/example.png" width="600"/>
 
 ---
 
@@ -31,6 +46,27 @@
 ### 1. 下載專案檔案
 
 ```bash
-git clone <your-github-repo-url>
-cd port_structure
+git clone https://github.com/xc6571260/port_structure_detection.git
+cd port_structure_detection
 ```
+### 2. 拉取 CUDA 12.4 Docker image
+```bash
+docker pull nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04
+```
+
+### 3. 建立image
+```bash
+docker build -t port_structure .
+```
+
+### 4.1 執行 container（支援CUDA12.4）
+```bash
+docker run --gpus all -v D:/your_path/port_structure_detection/input:/app/input -v D:/your_path/port_structure_detection/output:/app/output port_structure
+```
+請將 D:/your_path/port_structure_detection/ 替換為你實際的本機專案路徑。
+
+### 4.2 執行 container（CPU推論）
+```bash
+docker run -v D:/your_path/port_structure_detection/input:/app/input -v D:/your_path/port_structure_detection/output:/app/output port_structure
+```
+
