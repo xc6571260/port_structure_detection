@@ -10,7 +10,8 @@
   <img src="fig/poi1_map.png" width="340"/> <img src="fig/poi2_map.png" width="340"/> <img src="fig/poi3_map.png" width="340"/>
 </div>
 
-- 與去年度岸邊設施POI相同
+- F1區為POI 1至50
+- F2 F3區與先前一致
 ---
 
 ## 🛠️ 工作流程
